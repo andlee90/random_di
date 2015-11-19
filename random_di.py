@@ -1,8 +1,19 @@
+#TODO:
+# a. fix roll output quotes
+# b. more robust play-again loop
+# c. intro menu select
+# d. no 0 rolls
+
 # script to determine the outcome(s) of any number of dice rolls
 from random import randint
 
 #--------------------------------------------------------------------------------
 def dice_roller(dice, rolls, sides):
+
+	show_di = '|   |'
+	show_di_1 = '| * |'
+	show_di_2 = '|* *|'
+	show_di_3 = '|***|'
 
 	roll_counter = 0
 	di_counter = 0
@@ -16,6 +27,25 @@ def dice_roller(dice, rolls, sides):
 			di_counter+=1
 			num_side = randint(0, sides)
 			print "Roll %r, Di %r: %r" % (roll_counter, di_counter, num_side)
+			if num_side <= 6:
+				if num_side == 1:
+					print '%r' % show_di_1
+					print '%r' % show_di
+				elif num_side == 2:
+					print '%r' % show_di_2
+					print '%r' % show_di
+				elif num_side == 3:
+					print '%r' % show_di_2
+					print '%r' % show_di_1
+				elif num_side == 4:
+					print '%r' % show_di_2
+					print '%r' % show_di_2
+				elif num_side == 5:
+					print '%r' % show_di_3
+					print '%r' % show_di_2
+				elif num_side == 6:
+					print '%r' % show_di_3.strip('"\'')
+					print '%r' % show_di_3.strip('"\'')
 	print " "
 #-----------------------------------------------------------------------------------
 
