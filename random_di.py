@@ -2,7 +2,6 @@
 # a. fix roll output quotes
 # b. more robust play-again loop
 # c. intro menu select
-# d. no 0 rolls
 
 # script to determine the outcome(s) of any number of dice rolls
 from random import randint
@@ -49,13 +48,8 @@ def dice_roller(dice, rolls, sides):
 	print " "
 #-----------------------------------------------------------------------------------
 
-again_count = 0
-again = "y"
 
-while again != "n":
-
-	if again_count < 1:
-		print """
+menu = """
  __________________
 | Dice Roller v1.0 |
 | by Andrew Smith  |
@@ -71,23 +65,21 @@ Select from the following presets:
 a. 3 man attack (Risk)
 b. 2 man atack (Risk)
 c. 1 man attack (Risk)
-		"""
-	else:
-		print """
-
-Enter the number of dice to roll, the number
-of rolls, and the number of sides per di in the 
-following format: #dice #rolls #sides
 
 --- or ---
 
-Select from the following presets:
-a. 3 man attack (Risk)
-b. 2 man atack (Risk)
-c. 1 man attack (Risk)
+Type menu to repeat this menu
+
+--- or ---
+
+Type 'quit' to quit
 		"""
 
-	again_count += 1
+print menu
+
+again = 0
+
+while again != 1:
 
 	roll_choice = raw_input("> ")
 
@@ -98,6 +90,10 @@ c. 1 man attack (Risk)
 			dice_roller(2, 1, 6)
 		elif roll_choice == 'c':
 			dice_roller(1, 1, 6)
+		elif roll_choice == 'menu':
+			print menu
+		elif roll_choice == 'quit':
+			again = 1
 		else:
 			print "Invalid choice.\n"
 
@@ -111,10 +107,5 @@ c. 1 man attack (Risk)
 			dice_roller(one, two, three)
 		else:
 			print "Invalid Choice.\n"
-
 	else:
 		print "Invalid choice.\n"
-
-	print "Would you like to roll again? y for yes, n for no"
-
-	again = raw_input("> ")
