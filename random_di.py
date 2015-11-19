@@ -57,6 +57,8 @@ b. 2 man atack (Risk)
 c. 1 man attack (Risk)
 		"""
 
+	again_count += 1
+
 	roll_choice = raw_input("> ")
 
 	if roll_choice.isalpha():
