@@ -4,25 +4,28 @@ from random import randint
 #--------------------------------------------------------------------------------
 def dice_roller(dice, rolls, sides):
 
+	roll_counter = 0
+	di_counter = 0
+
+	while roll_counter < rolls:
+		roll_counter+=1
 		di_counter = 0
-		roll_counter = 0
-
-		while di_counter < rolls:
-			di_counter+=1
-			roll_counter = 0
-			print " "
-
-			while roll_counter < dice:
-				roll_counter+=1
-				num_side = randint(0, sides)
-				print "Roll %r, Di %r: %r" % (di_counter, roll_counter, num_side)
 		print " "
+
+		while di_counter < dice:
+			di_counter+=1
+			num_side = randint(0, sides)
+			print "Roll %r, Di %r: %r" % (roll_counter, di_counter, num_side)
+	print " "
 #-----------------------------------------------------------------------------------
 
+again_count = 0
 again = "y"
+
 while again != "n":
 
-	print """
+	if again_count < 1:
+		print """
  __________________
 | Dice Roller v1.0 |
 | by Andrew Smith  |
@@ -38,7 +41,22 @@ Select from the following presets:
 a. 3 man attack (Risk)
 b. 2 man atack (Risk)
 c. 1 man attack (Risk)
-	"""
+		"""
+	else:
+		print """
+
+Enter the number of dice to roll, the number
+of rolls, and the number of sides per di in the 
+following format: #dice #rolls #sides
+
+--- or ---
+
+Select from the following presets:
+a. 3 man attack (Risk)
+b. 2 man atack (Risk)
+c. 1 man attack (Risk)
+		"""
+
 	roll_choice = raw_input("> ")
 
 	if roll_choice.isalpha():
