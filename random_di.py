@@ -25,7 +25,7 @@ def dice_roller(dice, rolls, sides):
 
 		while di_counter < dice:
 			di_counter+=1
-			num_side = randint(0, sides)
+			num_side = randint(1, sides)
 			print "Roll %r, Di %r: %r" % (roll_counter, di_counter, num_side)
 			if num_side <= 6:
 				if num_side == 1:
