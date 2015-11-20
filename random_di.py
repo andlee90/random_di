@@ -1,7 +1,7 @@
 
 
 '''
-script to determine the outcome(s) of any number of dice rolls
+Script to determine the outcome(s) of any number of dice rolls
 By Andrew Smith (2015)
 '''
 
@@ -9,7 +9,7 @@ from random import randint
 
 def dice_roller(dice, rolls, sides):
     '''
-    Add doc string here.
+    Function to determine outcome of di(ce) rolls and output results
     '''
     show_di = '|   |'
     show_di_1 = '| * |'
@@ -94,7 +94,7 @@ Type 'quit' to quit
 
 def main():
     '''
-    Explain this function.
+    Function for user navigation and i/o
     '''
     print TITLE
     print MENU
