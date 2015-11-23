@@ -3,6 +3,8 @@
 '''
 Script to determine the outcome(s) of any number of dice rolls
 By Andrew Smith (2015)
+
+Example change
 '''
 
 from random import randint
